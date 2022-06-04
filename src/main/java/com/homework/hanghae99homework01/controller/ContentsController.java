@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RequiredArgsConstructor
 @RestController
 public class ContentsController {
@@ -35,12 +36,11 @@ public class ContentsController {
 
     /**
      * 게시글 하나 조회
+     * 댓글도 불러와야 함
      */
     @GetMapping("/api/contents/{nid}")
     public Contents getContents(@PathVariable Long nid) {
-        return contentsRepository.findById(nid).orElseThrow(
-                () -> new IllegalArgumentException("([my]Contents.Controller): 해당 아이디를 찾을 수 없습니다.")
-        );
+        return contentsService.findOne(nid);
     }
 
     /**
@@ -48,8 +48,7 @@ public class ContentsController {
      */
     @PutMapping("/api/contents/{nid}")
     public Long updateContents(@PathVariable Long nid, @RequestBody ContentsDto contentsDto) {
-        contentsService.update(nid, contentsDto);
-        return nid;
+        return contentsService.update(nid, contentsDto);
     }
 
     /**

@@ -24,6 +24,10 @@ public class Comments extends Timestamped{
     @Column(nullable = false)
     private String comments;
 
+    public void setContentsId(Long contentsId) {
+        this.contentsId = contentsId;
+    }
+
     public Comments(Long contentsId, String name, String comments) {
         this.contentsId = contentsId;
         this.name = name;
@@ -31,7 +35,6 @@ public class Comments extends Timestamped{
     }
 
     public Comments(CommentsDto commentsDto) {
-        this.contentsId = commentsDto.getContentsId();
         this.name = commentsDto.getName();
         this.comments = commentsDto.getComments();
     }

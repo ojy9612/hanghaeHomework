@@ -19,4 +19,10 @@ public class ContentsService {
         contentsRepository.save(contents);
         return contents.getId();
     }
+
+    public Contents findOne(Long nid){
+        return contentsRepository.findById(nid).orElseThrow(
+                () -> new IllegalArgumentException("([my]Contents.Controller): 해당 아이디를 찾을 수 없습니다.")
+        );
+    }
 }
