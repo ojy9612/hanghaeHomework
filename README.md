@@ -10,5 +10,5 @@
   |게시글 삭제|DELETE|/api/contents/{nid}|Long|
   |댓글 목록 조회|GET|/api/comments/{nid}|List<Comments>|작성 날짜 기준 내림차순|
   |댓글 작성|POST|/api/comments/{nid}|Comments|
-  |댓글 수정|PUT|/api/comments/{nid}/{mid}|Long|
-  |댓글 삭제|DELETE|/api/comments/{nid}/{mid}|Long|
+  |댓글 수정|PUT|/api/comments/{mid}|Long|
+  |댓글 삭제|DELETE|/api/comments/{mid}|Long|
