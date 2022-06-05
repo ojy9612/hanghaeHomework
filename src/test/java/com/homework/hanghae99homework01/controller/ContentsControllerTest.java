@@ -8,7 +8,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class ContentsControllerTest {
 
 
-
     @Test
     void getAllContents() {
     }
@@ -28,4 +27,5 @@ class ContentsControllerTest {
     @Test
     void deleteContents() {
     }
+
 }
