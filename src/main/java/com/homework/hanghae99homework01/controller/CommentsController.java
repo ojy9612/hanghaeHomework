@@ -1,12 +1,14 @@
 package com.homework.hanghae99homework01.controller;
 
 import com.homework.hanghae99homework01.dto.CommentsDto;
+import com.homework.hanghae99homework01.model.CommentsNoBoard;
 import com.homework.hanghae99homework01.model.Comments;
 import com.homework.hanghae99homework01.model.Board;
 import com.homework.hanghae99homework01.repository.CommentsRepository;
 import com.homework.hanghae99homework01.repository.BoardRepository;
 import com.homework.hanghae99homework01.service.CommentsService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,21 +25,25 @@ public class CommentsController {
      * 댓글 목록 불러오기
      */
     @GetMapping("/api/comments/{nid}")
-    public List<Comments> getAllComments(@PathVariable Long nid){
-        return null;
-//        return commentsRepository.findByContentsId(nid, Sort.by(Sort.Direction.DESC, "createdAt"));
+    public List<CommentsNoBoard> getAllComments(@PathVariable Long nid){
+        Optional<Board> optionalBoard = boardRepository.findById(nid);
+
+        return optionalBoard.map(
+                board -> commentsRepository.findByBoard(
+                        board, Sort.by(Sort.Direction.DESC, "createdAt")
+                )).orElse(null);
     }
 
     /**
      * 댓글 추가하기
      */
     @PostMapping("/api/comments/{nid}")
-    public void createComments(@PathVariable Long nid, @RequestBody CommentsDto commentsDto){
+    public Comments createComments(@PathVariable Long nid, @RequestBody CommentsDto commentsDto){
         Comments comments = new Comments(commentsDto);
         Optional<Board> optionalBoard  = boardRepository.findById(nid);
 
         optionalBoard.ifPresent(board -> board.addComments(comments));
-        commentsRepository.save(comments);
+        return commentsRepository.save(comments);
     }
 
     /**

@@ -1,5 +1,7 @@
 package com.homework.hanghae99homework01.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.homework.hanghae99homework01.dto.CommentsDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,6 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "id")
 public class Comments extends Timestamped{
 
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,7 +26,8 @@ public class Comments extends Timestamped{
     private String comments;
 
     @Setter
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "BOARD_ID", nullable = false)
     private Board board;
 
     public Comments(String name, String comments) {
