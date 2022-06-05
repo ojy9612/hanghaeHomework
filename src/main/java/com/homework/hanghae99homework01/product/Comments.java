@@ -3,6 +3,7 @@ package com.homework.hanghae99homework01.product;
 import com.homework.hanghae99homework01.dto.CommentsDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
@@ -16,20 +17,16 @@ public class Comments extends Timestamped{
     private Long id;
 
     @Column(nullable = false)
-    private Long contentsId;
-
-    @Column(nullable = false)
     private String name;
 
     @Column(nullable = false)
     private String comments;
 
-    public void setContentsId(Long contentsId) {
-        this.contentsId = contentsId;
-    }
+    @Setter
+    @ManyToOne
+    private Board board;
 
-    public Comments(Long contentsId, String name, String comments) {
-        this.contentsId = contentsId;
+    public Comments(String name, String comments) {
         this.name = name;
         this.comments = comments;
     }

@@ -37,4 +37,5 @@ out/
 .vscode/
 
 ### 내가 추가함 ###
+
 src/main/resources/application.properties

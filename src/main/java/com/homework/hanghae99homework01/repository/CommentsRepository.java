@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface CommentsRepository extends JpaRepository<Comments, Long> {
-
-    List<Comments> findByContentsId(Long contentsId, Sort sort);
+//
+//    List<Comments> findByContentsId(Long contentsId, Sort sort);
 }
