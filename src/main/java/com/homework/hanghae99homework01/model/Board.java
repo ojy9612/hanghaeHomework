@@ -1,4 +1,4 @@
-package com.homework.hanghae99homework01.product;
+package com.homework.hanghae99homework01.model;
 
 import com.homework.hanghae99homework01.dto.BoardDto;
 import lombok.Getter;

@@ -1,7 +1,7 @@
 package com.homework.hanghae99homework01.service;
 
 import com.homework.hanghae99homework01.dto.CommentsDto;
-import com.homework.hanghae99homework01.product.Comments;
+import com.homework.hanghae99homework01.model.Comments;
 import com.homework.hanghae99homework01.repository.CommentsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

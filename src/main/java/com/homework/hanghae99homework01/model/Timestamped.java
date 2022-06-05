@@ -1,4 +1,4 @@
-package com.homework.hanghae99homework01.product;
+package com.homework.hanghae99homework01.model;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;

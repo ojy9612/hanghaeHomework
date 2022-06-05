@@ -1,8 +1,10 @@
 package com.homework.hanghae99homework01.controller;
 
 import com.homework.hanghae99homework01.dto.BoardDto;
-import com.homework.hanghae99homework01.product.Board;
+import com.homework.hanghae99homework01.model.Board;
+import com.homework.hanghae99homework01.model.Comments;
 import com.homework.hanghae99homework01.repository.BoardRepository;
+import com.homework.hanghae99homework01.repository.CommentsRepository;
 import com.homework.hanghae99homework01.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
@@ -17,6 +19,7 @@ import java.util.Optional;
 public class BoardController {
     private final BoardService boardService;
     private final BoardRepository boardRepository;
+    private final CommentsRepository commentsRepository;
 
     /**
      * 전체 게시글 목록 조회
@@ -58,7 +61,12 @@ public class BoardController {
     @DeleteMapping("/api/contents/{nid}")
     public Long deleteBoard(@PathVariable Long nid) {
         Optional<Board> optionalBoard = boardRepository.findById(nid);
-        optionalBoard.ifPresent(board -> board.getCommentsList());
+        if (optionalBoard.isPresent()){
+            Board board = optionalBoard.get();
+            List<Comments> commentsList = board.getCommentsList();
+
+            commentsRepository.deleteAll(commentsList);
+        }
 
         boardRepository.deleteById(nid);
         return nid;

@@ -1,13 +1,12 @@
 package com.homework.hanghae99homework01.controller;
 
 import com.homework.hanghae99homework01.dto.CommentsDto;
-import com.homework.hanghae99homework01.product.Comments;
-import com.homework.hanghae99homework01.product.Board;
+import com.homework.hanghae99homework01.model.Comments;
+import com.homework.hanghae99homework01.model.Board;
 import com.homework.hanghae99homework01.repository.CommentsRepository;
 import com.homework.hanghae99homework01.repository.BoardRepository;
 import com.homework.hanghae99homework01.service.CommentsService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
