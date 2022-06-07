@@ -1,5 +1,7 @@
-package com.homework.hanghae99homework01.product;
+package com.homework.hanghae99homework01.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.homework.hanghae99homework01.dto.BoardDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "id")
 public class Board extends Timestamped{
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,8 +28,8 @@ public class Board extends Timestamped{
     @Column(nullable = false)
     private String contents;
 
-    @OneToMany( mappedBy = "board") // 주인은 Comment고 comment에서 borad를 참조하고 있다.
-    private List<Comments> commentsList = new ArrayList<Comments>();
+    @OneToMany( mappedBy = "board") // 주인은 Comments 고  comments 에서 board 를 참조하고 있다.
+    private final List<Comments> commentsList = new ArrayList<>();
 
     public void addComments(Comments comments){
         comments.setBoard(this);

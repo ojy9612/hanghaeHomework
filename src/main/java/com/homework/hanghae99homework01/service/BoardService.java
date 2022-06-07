@@ -1,7 +1,7 @@
 package com.homework.hanghae99homework01.service;
 
 import com.homework.hanghae99homework01.dto.BoardDto;
-import com.homework.hanghae99homework01.product.Board;
+import com.homework.hanghae99homework01.model.Board;
 import com.homework.hanghae99homework01.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
