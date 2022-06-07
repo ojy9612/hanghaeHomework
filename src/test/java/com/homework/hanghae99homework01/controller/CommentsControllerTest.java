@@ -4,28 +4,21 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
-class ContentsControllerTest {
-
+class CommentsControllerTest {
 
     @Test
-    void getAllContents() {
+    void getAllComments() {
     }
 
     @Test
-    void createContents() {
+    void createComments() {
     }
 
     @Test
-    void getContents() {
+    void updateComments() {
     }
 
     @Test
-    void updateContents() {
+    void deleteComments() {
     }
-
-    @Test
-    void deleteContents() {
-    }
-
 }

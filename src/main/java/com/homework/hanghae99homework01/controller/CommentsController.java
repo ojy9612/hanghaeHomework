@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,7 +39,7 @@ public class CommentsController {
      * 댓글 추가하기
      */
     @PostMapping("/api/comments/{nid}")
-    public Comments createComments(@PathVariable Long nid, @RequestBody CommentsDto commentsDto){
+    public Comments createComments(@PathVariable Long nid,@Valid @RequestBody CommentsDto commentsDto){
         Comments comments = new Comments(commentsDto);
         Optional<Board> optionalBoard  = boardRepository.findById(nid);
 
@@ -50,7 +51,7 @@ public class CommentsController {
      * 댓글 수정하기
      */
     @PutMapping("/api/comments/{mid}")
-    public Long updateComments(@PathVariable Long mid, @RequestBody CommentsDto commentsDto){
+    public Long updateComments(@PathVariable Long mid,@Valid @RequestBody CommentsDto commentsDto){
         return commentsService.update(mid,commentsDto);
     }
 
