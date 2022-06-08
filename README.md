@@ -8,7 +8,7 @@
   |게시글 조회|GET|/api/boards/{nid}|Board|
   |게시글 수정|PUT|/api/boards/{nid}|Long|
   |게시글 삭제|DELETE|/api/boards/{nid}|Long|
-  |댓글 목록 조회|GET|/api/comments/{nid}|List\<Comments\>|작성 날짜 기준 내림차순|
-  |댓글 작성|POST|/api/comments/{nid}|Comments|
+  |댓글 목록 조회|GET|/api/comments?board_id={nid} |List\<Comments\>|작성 날짜 기준 내림차순|
+  |댓글 작성|POST|/api/comments?board_id={nid} |Comments|
   |댓글 수정|PUT|/api/comments/{mid}|Long|
   |댓글 삭제|DELETE|/api/comments/{mid}|Long|
