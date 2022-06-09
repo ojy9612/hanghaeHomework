@@ -25,9 +25,9 @@ public class CommentsController {
     /**
      * 댓글 목록 불러오기
      */
-    @GetMapping("/api/comments/{nid}")
-    public List<CommentsNoBoard> getAllComments(@PathVariable Long nid){
-        Optional<Board> optionalBoard = boardRepository.findById(nid);
+    @GetMapping("/api/comments")// ?board_id=?
+    public List<CommentsNoBoard> getAllComments(@RequestParam Long board_id){
+        Optional<Board> optionalBoard = boardRepository.findById(board_id);
 
         return optionalBoard.map(
                 board -> commentsRepository.findByBoard(
@@ -38,10 +38,10 @@ public class CommentsController {
     /**
      * 댓글 추가하기
      */
-    @PostMapping("/api/comments/{nid}")
-    public Comments createComments(@PathVariable Long nid,@Valid @RequestBody CommentsDto commentsDto){
+    @PostMapping("/api/comments") // ?board_id=?
+    public Comments createComments(@RequestParam Long board_id,@Valid @RequestBody CommentsDto commentsDto){
         Comments comments = new Comments(commentsDto);
-        Optional<Board> optionalBoard  = boardRepository.findById(nid);
+        Optional<Board> optionalBoard  = boardRepository.findById(board_id);
 
         optionalBoard.ifPresent(board -> board.addComments(comments));
         return commentsRepository.save(comments);
