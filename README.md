@@ -2,7 +2,7 @@
 항해99 PBL 1주차 과제
 
   nid = BoardId,
-  mid = CommentID
+  mid = CommentId
 
   |**기능**|**Method**|**URL**|**Return**|**비고**
   |:---:|:---:|:---:|:---:|:---:|
