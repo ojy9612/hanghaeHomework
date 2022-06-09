@@ -1,6 +1,9 @@
 # hanghaeHomework
 항해99 PBL 1주차 과제
 
+  nid = BoardId
+  mid = CommentID
+
   |**기능**|**Method**|**URL**|**Return**|**비고**
   |:---:|:---:|:---:|:---:|:---:|
   |전체 게시글 목록 조회|GET|/api/boards/all|List\<Board\>|작성 날짜 기준 내림차순|
