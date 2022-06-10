@@ -1,5 +1,5 @@
 # hanghaeHomework
-항해99 PBL 과제
+항해99 1주차 PBL 과제
 
   nid = BoardId,
   mid = CommentId
