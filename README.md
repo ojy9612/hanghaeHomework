@@ -4,7 +4,7 @@
   nid = BoardId,
   mid = CommentId
 
-  |**분류**|**기능**|**Method**|**URL**|**Return**|**비고**
+  |**분류**|**기능**|**Method**|**URL**|**Return**|**비고**|
   |게시글|:---:|:---:|:---:|:---:|:---:|
   ||전체 게시글 목록 조회|GET|/api/boards/all|List\<Board\>|작성 날짜 기준 내림차순|
   ||게시글 작성|POST|/api/boards|Board|
